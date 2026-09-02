@@ -1,0 +1,69 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build All (MSVC cl.exe)",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/std:c++17",
+                "/EHsc",
+                "/nologo",
+                "/W4",
+                "/Zi",
+                "/I", "${workspaceFolder}\\include",
+                "${workspaceFolder}\\src\\Modules.cpp",
+                "${workspaceFolder}\\src\\ResourceIdentity.cpp",
+                "${workspaceFolder}\\src\\HospitalResource.cpp",
+                "${workspaceFolder}\\src\\MedicalEquipment.cpp",
+                "${workspaceFolder}\\src\\Patient.cpp",
+                "${workspaceFolder}\\src\\PatientMonitor.cpp",
+                "${workspaceFolder}\\src\\InfusionPump.cpp",
+                "${workspaceFolder}\\src\\Ventilator.cpp",
+                "${workspaceFolder}\\src\\HybridCriticalCareDevice.cpp",
+                "${workspaceFolder}\\src\\Hospital.cpp",
+                "${workspaceFolder}\\src\\main.cpp",
+                "/Fe:${workspaceFolder}\\HospitalManagement.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$msCompile"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Builds entire Smart Hospital project with MSVC cl.exe (Visual Studio)"
+        },
+        {
+            "label": "Build All (GCC g++)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-g",
+                "-I", "${workspaceFolder}/include",
+                "${workspaceFolder}/src/Modules.cpp",
+                "${workspaceFolder}/src/ResourceIdentity.cpp",
+                "${workspaceFolder}/src/HospitalResource.cpp",
+                "${workspaceFolder}/src/MedicalEquipment.cpp",
+                "${workspaceFolder}/src/Patient.cpp",
+                "${workspaceFolder}/src/PatientMonitor.cpp",
+                "${workspaceFolder}/src/InfusionPump.cpp",
+                "${workspaceFolder}/src/Ventilator.cpp",
+                "${workspaceFolder}/src/HybridCriticalCareDevice.cpp",
+                "${workspaceFolder}/src/Hospital.cpp",
+                "${workspaceFolder}/src/main.cpp",
+                "-o", "${workspaceFolder}/HospitalManagement"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "detail": "Builds entire Smart Hospital project with GCC g++"
+        }
+    ]
+}
